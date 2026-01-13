@@ -2,19 +2,22 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
 import '../utils/app_colors.dart';
+import 'app_bar.dart';
 import 'app_shadow.dart';
 import 'text_widgets.dart';
-
 
 Widget appButton({
   double width = 325,
   double height = 50,
   String buttonName = "",
   bool isLogin = true,
+  BuildContext? context,
+  void Function()? func
 }) {
   return GestureDetector(
-    onTap: () {},
+    onTap: func,
     child: Container(
       width: width.w,
       height: height.h,

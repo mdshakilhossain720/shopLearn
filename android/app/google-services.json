@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "847755323678",
+    "project_id": "shoplearen",
+    "storage_bucket": "shoplearen.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847755323678:android:a6c5717a47fea6b4ecc10f",
+        "android_client_info": {
+          "package_name": "com.shoplearn.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ-Nb5ibiKJ6MsOwN0B_kGQg2Ub-wyOoc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

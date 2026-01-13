@@ -1,12 +1,20 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'common/utils/app_styles.dart';
+import 'firebase_options.dart';
 import 'page/sign_in/sign_in.dart';
+import 'page/sign_up/sign_up.dart';
 import 'page/welcome/welcome.dart';
 
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const ProviderScope(child: MyApp()));
 }
 
@@ -20,19 +28,18 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
         builder: (context, child) => MaterialApp(
               title: 'Flutter Demo',
-              theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                useMaterial3: true,
-              ),
-
+              theme: AppTheme.appThemeData,
               routes: {
                 "/":(context)=>Welcome(),
-                "/signIn":(context)=>const SignIn()
+                "/signIn":(context)=>const SignIn(),
+                "/register":(context)=>const SignUp(),
               },
 
             ));
   }
 }
+
+
 
 final appCount = StateProvider<int>((ref) {
   return 3;
@@ -46,6 +53,7 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int count = ref.watch(appCount);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -65,30 +73,33 @@ class MyHomePage extends ConsumerWidget {
           ],
         ),
       ),
-      floatingActionButton: Row(
+      floatingActionButton:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FloatingActionButton(
             heroTag: "one",
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => const SecondPage()));
-            },
+            onPressed:()=>navRoute(),
             tooltip: 'Increment',
-            child: const Icon(Icons.arrow_right_rounded),
+            child: Icon(Icons.arrow_right_rounded),
           ),
-          FloatingActionButton(
-            heroTag: "two",
-            onPressed: () {
-              ref.read(appCount.notifier).state++;
-            },
+          const FloatingActionButton(
+            heroTag: "one",
+            onPressed:myTap,
             tooltip: 'Increment',
-            child: const Icon(Icons.add),
-          )
+            child: Icon(Icons.arrow_right_rounded),
+          ),
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+void myTap(){
+  print("I am tapped");
+}
+
+void navRoute(){
+  //do what you like here
 }
 
 class SecondPage extends ConsumerWidget {
