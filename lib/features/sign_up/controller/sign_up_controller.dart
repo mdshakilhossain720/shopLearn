@@ -3,9 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../common/global_loader/global_loader.dart';
-import '../../common/widgets/popup_messages.dart';
-import 'notifier/register_notifier.dart';
+import '../../../common/global_loader/global_loader.dart';
+import '../../../common/widgets/popup_messages.dart';
+import '../provider/register_notifier.dart';
+import '../repo/sign_up_repo.dart';
 
 class SignUpController{
   final WidgetRef ref;
@@ -44,9 +45,8 @@ class SignUpController{
     var context = Navigator.of(ref.context);
     try{
 
-      final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: email, password: password
-      );
+      final credential = await SignUpRep.firebaseSignUp(email, password);
+
       if (kDebugMode) {
         print(credential);
       }
@@ -70,7 +70,7 @@ class SignUpController{
        }else if(e.code=='user-not-found'){
          toastInfo("User not found");
        }
-
+      print(e.code);
     }catch(e){
       if (kDebugMode) {
         print(e.toString());

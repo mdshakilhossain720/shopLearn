@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'notifier/welcome_notifier.dart';
+import '../provider/welcome_notifier.dart';
 import 'widgets/widgets.dart';
 
 
@@ -68,7 +68,7 @@ class Welcome extends ConsumerWidget {
                 Positioned(
                   bottom: 50,
                   child: DotsIndicator(
-                   // position: index,
+                    //position: index,
                     dotsCount: 3,
                     mainAxisAlignment: MainAxisAlignment.center,
                     decorator: DotsDecorator(

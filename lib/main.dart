@@ -1,22 +1,17 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'common/utils/app_styles.dart';
-import 'firebase_options.dart';
-import 'page/sign_in/sign_in.dart';
-import 'page/sign_up/sign_up.dart';
-import 'page/welcome/welcome.dart';
 
+import 'common/routes/routes.dart';
+import 'common/utils/app_styles.dart';
+import 'global.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Global.init();
   runApp(const ProviderScope(child: MyApp()));
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -29,12 +24,7 @@ class MyApp extends StatelessWidget {
         builder: (context, child) => MaterialApp(
               title: 'Flutter Demo',
               theme: AppTheme.appThemeData,
-              routes: {
-                "/":(context)=>Welcome(),
-                "/signIn":(context)=>const SignIn(),
-                "/register":(context)=>const SignUp(),
-              },
-
+              onGenerateRoute: AppPages.generateRouteSettings,
             ));
   }
 }
