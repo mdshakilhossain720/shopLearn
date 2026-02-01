@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/global_loader/global_loader.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
+import 'package:ulearning_app/common/widgets/button_widgets.dart';
+import 'package:ulearning_app/common/widgets/text_widgets.dart';
+import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
+import 'package:ulearning_app/pages/sign_up/notifier/register_notifier.dart';
+import 'package:ulearning_app/pages/sign_up/sign_up_controller.dart';
 
-import '../../../common/global_loader/global_loader.dart';
-import '../../../common/utils/app_colors.dart';
-import '../../../common/utils/image_res.dart';
-import '../../../common/widgets/app_bar.dart';
-import '../../../common/widgets/app_textfields.dart';
-import '../../../common/widgets/button_widgets.dart';
-import '../../../common/widgets/text_widgets.dart';
-import '../controller/sign_up_controller.dart';
-import '../provider/register_notifier.dart';
+import '../../common/widgets/app_bar.dart';
+import '../../common/widgets/app_textfields.dart';
 
 class SignUp extends ConsumerStatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -60,7 +60,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         //user name text box
                         appTextField(
                           text: "User name",
-                          iconName: ImageRes.user,
+                          iconName: "assets/icons/user.png",
                           hintText: "Enter your user name",
                           func: (value) => ref
                               .read(registerNotifierProvider.notifier)
@@ -72,7 +72,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         //email text box
                         appTextField(
                           text: "Email",
-                          iconName:  ImageRes.user,
+                          iconName: "assets/icons/user.png",
                           hintText: "Enter your email address",
                           func: (value) => ref
                               .read(registerNotifierProvider.notifier)
@@ -84,7 +84,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         //password text box
                         appTextField(
                           text: "Password",
-                          iconName:  ImageRes.lock,
+                          iconName: "assets/icons/lock.png",
                           hintText: "Enter your password",
                           obscureText: true,
                           func: (value) => ref
@@ -97,7 +97,7 @@ class _SignUpState extends ConsumerState<SignUp> {
                         //password text box
                         appTextField(
                             text: "Confirm your password",
-                            iconName:  ImageRes.lock,
+                            iconName: "assets/icons/lock.png",
                             hintText: "Confirm your password",
                             func: (value) => ref
                                 .read(registerNotifierProvider.notifier)

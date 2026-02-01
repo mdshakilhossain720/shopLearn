@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-import 'register_state.dart';
-
+import 'package:ulearning_app/pages/sign_up/notifier/register_state.dart';
 part 'register_notifier.g.dart';
 
 @riverpod

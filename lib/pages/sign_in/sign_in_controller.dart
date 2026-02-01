@@ -3,14 +3,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ulearning_app/common/entities/entities.dart';
+import 'package:ulearning_app/common/global_loader/global_loader.dart';
+import 'package:ulearning_app/common/utils/constants.dart';
 
-import '../../../common/entities/user.dart';
-import '../../../common/global_loader/global_loader.dart';
-import '../../../common/utils/constants.dart';
-import '../../../common/widgets/popup_messages.dart';
-import '../../../global.dart';
-import '../provider/sign_in_notifier.dart';
-import '../repo/sigin_in_repo.dart';
+import '../../common/widgets/popup_messages.dart';
+import '../../global.dart';
+import 'notifier/sign_in_notifier.dart';
 
 class SignInController {
 
@@ -42,7 +41,8 @@ class SignInController {
 
     try {
 
-      final credential = await SignInRepo.firebaseSignIn(email, password);
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email, password: password);
 
 
       if(credential.user==null){
@@ -104,11 +104,10 @@ class SignInController {
       Global.storageService.setString(AppConstants.STORAGE_USER_PROFILE_KEY, "123");
       Global.storageService.setString(AppConstants.STORAGE_USER_TOKEN_KEY, "123456");
 
-      navigator.pushNamedAndRemoveUntil("/application", (route) => false);
- /*     navigator.push(MaterialPageRoute(
-          builder: (BuildContext context)=>Scaffold(appBar: AppBar(),body: const Application(),))
-    );*/
-     // navigator.pushNamed("/application");
+     // navigator.pushNamedAndRemoveUntil(newRouteName, (route) => false)
+      navigator.push(MaterialPageRoute(
+          builder: (BuildContext context)=>Scaffold(appBar: AppBar(),body: Container(),))
+    );
     }catch(e){
       if (kDebugMode) {
         print(e.toString());

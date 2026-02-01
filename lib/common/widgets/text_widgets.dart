@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-
-import '../utils/app_colors.dart';
+import 'package:ulearning_app/common/utils/app_colors.dart';
 
 Widget text24Normal({String text = "", Color color = AppColors.primaryText}) {
 
@@ -27,7 +25,7 @@ Widget text14Normal(
     {String text = "", Color color = AppColors.primaryThirdElementText}) {
   return Text(
     text,
-    textAlign: TextAlign.center,
+    textAlign: TextAlign.start,
     style: TextStyle(color: color, fontSize: 14.sp, fontWeight: FontWeight.normal),
   );
 }

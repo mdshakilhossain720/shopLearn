@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/global_loader/global_loader.dart';
+import 'package:ulearning_app/common/widgets/button_widgets.dart';
+import 'package:ulearning_app/common/widgets/text_widgets.dart';
+import 'package:ulearning_app/pages/sign_in/notifier/sign_in_notifier.dart';
+import 'package:ulearning_app/pages/sign_in/sign_in_controller.dart';
+import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
 
-import '../../../common/global_loader/global_loader.dart';
-import '../../../common/utils/app_colors.dart';
-
-import '../../../common/utils/image_res.dart';
-import '../../../common/widgets/app_bar.dart';
-import '../../../common/widgets/app_textfields.dart';
-import '../../../common/widgets/button_widgets.dart';
-import '../../../common/widgets/text_widgets.dart';
-import '../controller/sign_in_controller.dart';
-import '../provider/sign_in_notifier.dart';
-import 'widgets/sign_in_widgets.dart';
+import '../../common/utils/app_colors.dart';
+import '../../common/widgets/app_bar.dart';
+import '../../common/widgets/app_textfields.dart';
 
 class SignIn extends ConsumerStatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -59,7 +57,7 @@ class _SignInState extends ConsumerState<SignIn> {
                   appTextField(
                       controller: _controller.emailController,
                       text: "Email",
-                      iconName:  ImageRes.user,
+                      iconName: "assets/icons/user.png",
                       hintText: "Enter your email address",
                       func: (value) => ref
                           .read(signInNotifierProvider.notifier)
@@ -73,7 +71,7 @@ class _SignInState extends ConsumerState<SignIn> {
                   appTextField(
                       controller:  _controller.passwordController,
                       text: "Password",
-                      iconName:  ImageRes.lock,
+                      iconName: "assets/icons/lock.png",
                       hintText: "Enter your password",
                       obscureText: true,
                       func: (value) => ref

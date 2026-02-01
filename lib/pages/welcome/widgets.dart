@@ -1,12 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:ulearning_app/common/widgets/app_shadow.dart';
+import 'package:ulearning_app/pages/sign_in/sign_in.dart';
 
-
-import '../../../../common/utils/constants.dart';
-import '../../../../common/widgets/app_shadow.dart';
-import '../../../../common/widgets/text_widgets.dart';
-import '../../../../global.dart';
+import '../../common/widgets/text_widgets.dart';
 
 Widget appOnboardingPage(PageController controller,
     {String imagePath = "assets/images/reading.png",
@@ -37,19 +35,20 @@ Widget appOnboardingPage(PageController controller,
 Widget _nextButton(int index, PageController controller, BuildContext context) {
   return GestureDetector(
     onTap: () {
-
       if (index < 3) {
         controller.animateToPage(index,
             duration: const Duration(milliseconds: 300), curve: Curves.linear);
       }else{
-
-        //remember if we are first time or not
-        Global.storageService.setBool(AppConstants.STORAGE_DEVICE_OPEN_FIRST_KEY, true);
-
         Navigator.pushNamed (
           context,
-          "/sign_in",
+          "/signIn",
         );
+       /* Navigator.push (
+          context,
+          MaterialPageRoute (
+            builder: (BuildContext context) => const SignIn(),
+          ),
+        );*/
       }
     },
     child: Container(
