@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/common/global_loader/global_loader.dart';
-import 'package:ulearning_app/common/widgets/button_widgets.dart';
-import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/sign_in/notifier/sign_in_notifier.dart';
-import 'package:ulearning_app/pages/sign_in/sign_in_controller.dart';
-import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
 
+
+import '../../common/global_loader/global_loader.dart';
 import '../../common/utils/app_colors.dart';
 import '../../common/widgets/app_bar.dart';
 import '../../common/widgets/app_textfields.dart';
+import '../../common/widgets/button_widgets.dart';
+import '../../common/widgets/text_widgets.dart';
+import 'notifier/sign_in_notifier.dart';
+import 'sign_in_controller.dart';
+import 'widgets/sign_in_widgets.dart';
 
 class SignIn extends ConsumerStatefulWidget {
   const SignIn({Key? key}) : super(key: key);

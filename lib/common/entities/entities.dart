@@ -1,4 +1,4 @@
-library entities;
+library;
 
 export 'user.dart';
 /*export 'contact.dart';
@@ -10,4 +10,3 @@ export 'msgcontent.dart';
 export 'message.dart';
 export 'chat.dart';
 export 'chatcall.dart';*/
-

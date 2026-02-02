@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/sign_up/notifier/register_notifier.dart';
+
 
 import 'app_shadow.dart';
 import 'image_widgets.dart';
+import 'text_widgets.dart';
 
 Widget appTextField(
     {

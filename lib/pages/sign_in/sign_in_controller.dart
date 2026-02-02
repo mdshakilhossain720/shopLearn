@@ -3,10 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ulearning_app/common/entities/entities.dart';
-import 'package:ulearning_app/common/global_loader/global_loader.dart';
-import 'package:ulearning_app/common/utils/constants.dart';
 
+
+import '../../common/entities/user.dart';
+import '../../common/global_loader/global_loader.dart';
+import '../../common/utils/constants.dart';
 import '../../common/widgets/popup_messages.dart';
 import '../../global.dart';
 import 'notifier/sign_in_notifier.dart';

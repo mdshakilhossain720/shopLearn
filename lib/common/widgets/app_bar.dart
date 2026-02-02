@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ulearning_app/common/widgets/text_widgets.dart';
+
 
 import '../utils/app_colors.dart';
+import 'text_widgets.dart';
 /*
   preferredSize widget gives you a height or space from the appbar downwords and we can
   put child in the given space

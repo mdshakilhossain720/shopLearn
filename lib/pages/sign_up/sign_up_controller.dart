@@ -2,9 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:ulearning_app/common/global_loader/global_loader.dart';
-import 'package:ulearning_app/common/widgets/popup_messages.dart';
-import 'package:ulearning_app/pages/sign_up/notifier/register_notifier.dart';
+
+import '../../common/global_loader/global_loader.dart';
+import '../../common/widgets/popup_messages.dart';
+import 'notifier/register_notifier.dart';
+
 
 class SignUpController{
   final WidgetRef ref;

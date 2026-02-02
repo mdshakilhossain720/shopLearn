@@ -3,10 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/welcome/widgets.dart';
 
 import 'notifier/welcome_notifier.dart';
+import 'widgets.dart';
 
 
 //final indexProvider = StateProvider<int>((ref)=>0);
@@ -69,7 +68,7 @@ class Welcome extends ConsumerWidget {
                 Positioned(
                   bottom: 50,
                   child: DotsIndicator(
-                    position: index,
+                   // position: index,
                     dotsCount: 3,
                     mainAxisAlignment: MainAxisAlignment.center,
                     decorator: DotsDecorator(

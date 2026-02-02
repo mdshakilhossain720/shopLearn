@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:ulearning_app/common/utils/app_colors.dart';
-import 'package:ulearning_app/common/widgets/app_shadow.dart';
-import 'package:ulearning_app/common/widgets/text_widgets.dart';
-import 'package:ulearning_app/pages/sign_in/widgets/sign_in_widgets.dart';
-import 'package:ulearning_app/pages/sign_up/sign_up.dart';
 
+
+import '../utils/app_colors.dart';
 import 'app_bar.dart';
+import 'app_shadow.dart';
+import 'text_widgets.dart';
 
 Widget appButton({
   double width = 325,
