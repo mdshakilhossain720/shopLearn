@@ -1,17 +1,22 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'common/routes/routes.dart';
 import 'common/utils/app_styles.dart';
 import 'global.dart';
-import 'pages/sign_in/sign_in.dart';
-import 'pages/sign_up/sign_up.dart';
-import 'pages/welcome/welcome.dart';
 
 Future<void> main() async {
-  Global.init();
+
+
+  await Global.init();
+
   runApp(const ProviderScope(child: MyApp()));
 }
+
+final GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -21,25 +26,25 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
-      builder: (context, child) => MaterialApp(
-        title: 'Flutter Demo',
-        theme: AppTheme.appThemeData,
-        routes: {
-          "/": (context) => Welcome(),
-          "/signIn": (context) => const SignIn(),
-          "/register": (context) => const SignUp(),
-        },
-      ),
-    );
+        builder: (context, child) => MaterialApp(
+              navigatorKey: navKey,
+              title: 'Flutter Demo',
+              theme: AppTheme.appThemeData,
+              onGenerateRoute: AppPages.generateRouteSettings,
+            ));
   }
 }
+
+
 
 final appCount = StateProvider<int>((ref) {
   return 3;
 });
 
 class MyHomePage extends ConsumerWidget {
-  const MyHomePage({super.key});
+  const MyHomePage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -54,7 +59,9 @@ class MyHomePage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Text('You have pushed the button this many times:'),
+            const Text(
+              'You have pushed the button this many times:',
+            ),
             Text(
               count.toString(),
               style: Theme.of(context).textTheme.headlineMedium,
@@ -62,18 +69,18 @@ class MyHomePage extends ConsumerWidget {
           ],
         ),
       ),
-      floatingActionButton: Row(
+      floatingActionButton:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           FloatingActionButton(
             heroTag: "one",
-            onPressed: () => navRoute(),
+            onPressed:()=>navRoute(),
             tooltip: 'Increment',
             child: Icon(Icons.arrow_right_rounded),
           ),
           const FloatingActionButton(
             heroTag: "one",
-            onPressed: myTap,
+            onPressed:myTap,
             tooltip: 'Increment',
             child: Icon(Icons.arrow_right_rounded),
           ),
@@ -83,23 +90,28 @@ class MyHomePage extends ConsumerWidget {
   }
 }
 
-void myTap() {
+void myTap(){
   print("I am tapped");
 }
 
-void navRoute() {
+void navRoute(){
   //do what you like here
 }
 
 class SecondPage extends ConsumerWidget {
-  const SecondPage({super.key});
+  const SecondPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int count = ref.watch(appCount);
     return Scaffold(
       appBar: AppBar(),
-      body: Center(child: Text("$count", style: TextStyle(fontSize: 30))),
+      body: Center(
+        child: Text(
+          "$count",
+          style: TextStyle(fontSize: 30),
+        ),
+      ),
     );
   }
 }
